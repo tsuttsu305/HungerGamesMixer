@@ -1,0 +1,6 @@
+WaitEndTime=30
+GameStartTime=40
+SecondWaitTime=180
+LastBattleStartTime=240
+LastBattleAfterTime=245
+EndGamingTime=300

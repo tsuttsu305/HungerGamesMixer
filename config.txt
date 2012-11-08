@@ -1,0 +1,5 @@
+defPoints=3
+StartSecondWaittimeplayers=3
+togglechatdistance=20
+GamingLimitDistance=300
+LastBattleListmitDistance=50

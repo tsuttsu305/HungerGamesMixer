@@ -1,0 +1,4 @@
+##キットの形式
+##キット名/アイテム/アビリティ名/ポーション/購入に必要なポイント
+##assassin/null/assassin/null/1
+assassin/null/assassin/null/1
