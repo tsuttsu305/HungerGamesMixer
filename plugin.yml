@@ -1,0 +1,13 @@
+name: TheBukkitGames
+main: mc.lhq.TheBukkitGames.TheBukkitGames
+version: 1.0
+commands:
+  kit:
+    description: kit
+    usage: /kit [kitname]
+  stats:
+    description: stats
+    usage: /stats
+  p:
+    description: togglechat
+    usage: /p
