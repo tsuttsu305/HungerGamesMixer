@@ -18,6 +18,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
 
 public class GameCommandExecutor implements CommandExecutor {
 
@@ -74,6 +75,16 @@ public class GameCommandExecutor implements CommandExecutor {
 						int needpoint = k.getpoint();
 						int setpoint = points-needpoint;
 						if(setpoint>=0){
+							ItemStack[] con = p.getInventory().getContents();
+							int u = 0;
+							int emptyslot = 0;
+							while(u!=con.length){
+								if(con[u]==null){
+									emptyslot++;
+								}
+								u++;
+							}
+							if(emptyslot>=k.getitems().size()){
 							GamePlayerListener.points.put(p.getName(), setpoint);
 							klist.add(k);
 							GamePlayerListener.plkit.put(p.getName(), klist);
@@ -82,6 +93,10 @@ public class GameCommandExecutor implements CommandExecutor {
 								KitUtil.setKit(p, k);
 							}
 							return true;
+						}else{
+							p.sendMessage(ChatColor.RED+"そのkitを購入するにはインベントリーに空きを作る必要があります!");
+							return true;
+						}
 						}else{
 							p.sendMessage(ChatColor.RED+"そのkitを購入するには"+LoadMessages.commandpointname+"が足りません!");
 							return true;
