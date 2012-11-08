@@ -39,6 +39,7 @@ import org.bukkit.event.player.PlayerKickEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerPickupItemEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.potion.PotionEffect;
 
@@ -366,12 +367,15 @@ public class GamePlayerListener implements Listener {
 				Player p = (Player) event.getEntity();
 				if(p.getItemInHand()!=null){
 					if(p.getItemInHand().getType()==Material.MUSHROOM_SOUP){
-						event.setCancelled(true);
-						int phealth = p.getHealth()+3;
-						if(20>=phealth){
-							p.setHealth(phealth);
-						}else{
-							p.setHealth(20);
+						if(p.getHealth()!=20){
+							event.setCancelled(true);
+							int phealth = p.getHealth()+3;
+							if(20>=phealth){
+								p.setHealth(phealth);
+							}else{
+								p.setHealth(20);
+							}
+							p.getInventory().removeItem(new ItemStack(Material.MUSHROOM_SOUP,1));
 						}
 					}
 				}
