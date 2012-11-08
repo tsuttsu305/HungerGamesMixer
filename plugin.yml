@@ -1,5 +1,5 @@
-name: TheBukkitGames
-main: mc.lhq.TheBukkitGames.TheBukkitGames
+name: HungerGamesMixer
+main: mc.lhq.HungerGamesMixer.HungerGamesMixer
 version: 1.0
 commands:
   kit:
