@@ -361,6 +361,21 @@ public class GamePlayerListener implements Listener {
 	public void onFoodLevelChange(FoodLevelChangeEvent event){
 		if(pltype.get(event.getEntity().getName())==PlayerType.WATCHING){
 			event.setCancelled(true);
+		}else{
+			if(event.getEntity() instanceof Player){
+				Player p = (Player) event.getEntity();
+				if(p.getItemInHand()!=null){
+					if(p.getItemInHand().getType()==Material.MUSHROOM_SOUP){
+						event.setCancelled(true);
+						int phealth = p.getHealth()+3;
+						if(20>=phealth){
+							p.setHealth(phealth);
+						}else{
+							p.setHealth(20);
+						}
+					}
+				}
+			}
 		}
 	}
 	private void setWatching(Player joinp) {
